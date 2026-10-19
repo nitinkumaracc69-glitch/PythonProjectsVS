@@ -1,11 +1,11 @@
 from playwright.sync_api import Page, expect, Playwright
 import pytest
 
-def test_datePicker(playwright: Playwright):
+def test_video_screen(playwright: Playwright):
     browser = playwright.chromium.launch(headless=False)
 
     page = browser.new_page()
-    page.goto("https://www.globalsqa.com/demo-site/datepicker/#google_vignette")
+    page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
     page.wait_for_timeout(3000)
 
