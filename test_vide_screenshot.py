@@ -6,6 +6,6 @@ def test_video_screen(playwright: Playwright):
     context = browser.new_context(record_video_dir="videos/")
     page = context.new_page()
    
-    page.goto("https://google.com/")
-
-    page.wait_for_timeout(8000)
+    page.goto("https://practicetestautomation.com/practice-test-login/")
+    page.wait_for_timeout(3000)
+    page.screenshot(path="screenshot.png")
