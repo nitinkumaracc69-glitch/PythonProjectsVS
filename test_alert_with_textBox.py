@@ -6,6 +6,7 @@ def test_dialogWithTextBox(playwright: Playwright):
     browser=playwright.firefox.launch(headless=False)
 
     context=browser.new_context()
+    context.tracing.start(screenshots=True, snapshots=True)
     page=context.new_page()
 
     page.goto("https://demo.automationtesting.in/Alerts.html#google_vignette")
@@ -18,3 +19,8 @@ def test_dialogWithTextBox(playwright: Playwright):
 
     dialog_message_after=page.locator("//p[@id='demo1']")
     expect(dialog_message_after).to_contain_text(message_to_pass)
+
+    context.tracing.stop(path="traces/dialogWithTextBox.zip")
+
+    context.close()
+    browser.close()
